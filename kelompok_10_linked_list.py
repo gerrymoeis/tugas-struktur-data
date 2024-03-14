@@ -39,3 +39,67 @@ class LinkedList:
             count += 1
 
         return count
+
+   # CREATING AND UPDATING
+    def create(self, data):
+        node = Node(data, self.head)
+        if self.head is not None:
+            self.head.prev = node
+        self.head = node
+
+        if self.tail is None: self.tail = self.head
+    
+    def create_values(self, data_list):
+        for data in data_list:
+            self.create(data)
+    
+    def append(self, data):
+        if self.head is None: return self.create(data)
+
+        node = Node(data, prev=self.tail)
+        self.tail.next = node
+        self.tail = node
+    
+    def append_values(self, data_list):
+        for data in data_list:
+            self.append(data)
+    
+    def insert_at(self, data, index):
+        if index < 0 or index >= self.length():
+            raise Exception("Index out of Range")
+        if index == 0: return self.create()
+        if index == -1: return self.append()
+
+        count = 0
+        temp = self.head
+        while temp:
+            if count == index - 1:
+                node = Node(data, temp.next, temp)
+                temp.next.prev = node
+                temp.next = node
+                break
+            temp = temp.next
+            count += 1
+    
+    # DELETE OR REMOVING
+    def delete(self):
+        self.head = self.head.next
+        self.head.prev = None
+
+    def pop(self):
+        self.tail = self.tail.prev
+        self.tail.next = None
+
+    def remove_at(self, index):
+        if index < 0 or index >= self.length():
+            raise Exception("Index out of Range")
+        if index == 0: self.delete()
+
+        count = 0
+        node = self.head
+        while node:
+            if count == index - 1:
+                node.next = node.next.next
+                node.next.prev = node
+            node = node.next
+            count += 1
