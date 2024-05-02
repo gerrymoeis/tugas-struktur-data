@@ -20,3 +20,31 @@ class KatakanPeta():
         if kota not in self.daftarKota:
             self.daftarKota[kota] = {}
             self.jumlahKota += 1
+    
+    def tambahkanJalan(self, kota1, cities):
+        for kota in cities:
+            if kota1 and kota in self.daftarKota:
+                self.daftarKota[kota1][kota] = cities[kota]
+                self.daftarKota[kota][kota1] = cities[kota]
+    
+    def hapusKota(self, kotaDihapus):
+        if kotaDihapus in self.daftarKota:
+            for kota in self.daftarKota:
+                if kotaDihapus in self.daftarKota[kota]:
+                    del self.daftarKota[kota][kotaDihapus]
+            del self.daftarKota[kotaDihapus]
+            self.jumlahKota -= 1
+    
+    def hapusJalan(self, kota1, kota2):
+        if kota1 and kota2 in self.daftarKota:
+            del self.daftarKota[kota1][kota2]
+            del self.daftarKota[kota2][kota1]
+    
+    def cariRuteTercepat(self, kota):
+        kota = kota.title()
+        if kota in self.daftarKota:
+            terdekat = min(self.daftarKota[kota].values())
+            rute = [jalan for jalan in self.daftarKota[kota] if self.daftarKota[kota][jalan] == terdekat]
+            print(", ".join([f"{jalan} {terdekat}km" for jalan in rute]))
+        else:
+            print(f"{kota} tidak berada di daftar kota")
