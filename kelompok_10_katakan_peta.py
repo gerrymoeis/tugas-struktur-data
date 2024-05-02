@@ -57,6 +57,9 @@ for city in cities:
     
 petaBelanda.tambahkanJalan("Amsterdam", {"Haarlem": 31.7, "Leiden": 49.6, "Almere": 32.3})
 petaBelanda.tambahkanJalan("Den Haag", {"Leiden": 33, "Delft": 13})
+petaBelanda.tambahkanJalan("Gouda", {"Delft": 35.8, "Rotterdam": 23.7, "Utrecht": 40.9})
+petaBelanda.tambahkanJalan("Utrecht", {"Gouda": 40.9, "Vianen": 18.2, "Amersfoort": 24.4})
+petaBelanda.tambahkanJalan("Almere", {"Amsterdam": 32.3, "Amersfoort": 42})
 
 print("=== PETA BELANDA ===")
 petaBelanda.tampilkanPeta()
@@ -65,6 +68,3 @@ rute_tercepat = input("Cari Rute Tercepat dari (keluar ketik 'exit'): ")
 while rute_tercepat != "exit":
     petaBelanda.cariRuteTercepat(rute_tercepat)
     rute_tercepat = input("Cari Rute Tercepat dari (keluar ketik 'exit'): ")
-petaBelanda.tambahkanJalan("Gouda", {"Delft": 35.8, "Rotterdam": 23.7, "Utrecht": 40.9})
-petaBelanda.tambahkanJalan("Utrecht", {"Gouda": 40.9, "Vianen": 18.2, "Amersfoort": 24.4})
-petaBelanda.tambahkanJalan("Almere", {"Amsterdam": 32.3, "Amersfoort": 42})
