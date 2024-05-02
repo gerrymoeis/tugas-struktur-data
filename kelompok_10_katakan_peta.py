@@ -48,3 +48,15 @@ class KatakanPeta():
             print(", ".join([f"{jalan} {terdekat}km" for jalan in rute]))
         else:
             print(f"{kota} tidak berada di daftar kota")
+
+cities = ["Amsterdam", "Almere", "Amersfoort", "Utrecht", "Vianen", "Gouda", "Rotterdam", "Delft", "Den Haag", "Leiden", "Haarlem"]
+
+petaBelanda = KatakanPeta()
+for city in cities:
+    petaBelanda.tambahkanKota(city)
+    
+petaBelanda.tambahkanJalan("Amsterdam", {"Haarlem": 31.7, "Leiden": 49.6, "Almere": 32.3})
+petaBelanda.tambahkanJalan("Den Haag", {"Leiden": 33, "Delft": 13})
+petaBelanda.tambahkanJalan("Gouda", {"Delft": 35.8, "Rotterdam": 23.7, "Utrecht": 40.9})
+petaBelanda.tambahkanJalan("Utrecht", {"Gouda": 40.9, "Vianen": 18.2, "Amersfoort": 24.4})
+petaBelanda.tambahkanJalan("Almere", {"Amsterdam": 32.3, "Amersfoort": 42})
