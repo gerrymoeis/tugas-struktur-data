@@ -1,5 +1,5 @@
 # tugas-struktur-data
-Kelompok 10 - Kumpulan Tugas Struktur Data
+Kelompok 10_2023E - Kumpulan Tugas Struktur Data
 
 # Anggota Kelompok
 1. Gerry Moeis M.D.P - 23091397164 (Ketua)
