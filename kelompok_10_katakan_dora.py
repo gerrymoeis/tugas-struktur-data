@@ -68,7 +68,7 @@ class KatakanPeta():
         path = {}
         city = target
         
-while city != start:
+        while city != start:
             if routes[city] == start:
                 path[city] = distances[city]
             else:
