@@ -57,9 +57,9 @@ class KatakanPeta():
         dari = dari.title()
         ke = ke.title()
         if dari in self.daftarKota and ke in self.daftarKota:
-            print(f"\tDari {dari} ke {ke}, berjarak {self.peta[dari][ke]["jarak"]} km")
+            print(f"\tDari {dari} ke {ke}, berjarak {self.peta[dari][ke]['jarak']} km")
             print(f"\tDengan rute: ")
-            for jalan, jarak in reversed(self.peta[dari][ke]["rute"].items()):
+            for jalan, jarak in reversed(self.peta[dari][ke]['rute'].items()):
                 print("\t\t --->", jalan, jarak, "km")
         else:
             print(f"{dari} atau {ke} tidak berada di daftar kota")
