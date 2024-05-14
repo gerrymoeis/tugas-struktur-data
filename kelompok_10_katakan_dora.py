@@ -67,3 +67,40 @@ class KatakanPeta():
     def route(self, distances, routes, start, target):
         path = {}
         city = target
+        
+while city != start:
+            if routes[city] == start:
+                path[city] = distances[city]
+            else:
+                path[city] = round(distances[city] - distances[routes[city]], 1)
+            city = routes[city]
+
+        return path
+
+    def dijkstra(self, start):
+        unvisited_cities = [*self.daftarKota.keys()]
+        distances = {}
+        routes = {}
+    
+        for city in unvisited_cities:
+            distances[city] = float("inf")
+        distances[start] = 0
+        
+        while unvisited_cities:
+            closest_city = None
+            for city in unvisited_cities:
+                if closest_city == None:
+                    closest_city = city
+                elif distances[city] < distances[closest_city]:
+                    closest_city = city
+                    
+            for neighbour, distance in self.daftarKota[closest_city].items():
+                total_distance = round(distances[closest_city] + distance, 1)
+                if total_distance < distances[neighbour]:
+                    distances[neighbour] = total_distance
+                    routes[neighbour] = closest_city
+
+            unvisited_cities.remove(closest_city)
+
+        del distances[start]
+        return distances, routes
